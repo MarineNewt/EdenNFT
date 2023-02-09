@@ -1,0 +1,87 @@
+.section{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /*
+    Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif //fun, playful
+    Times New Roman", Times, serif  //Tight, informative
+    Arial, Helvetica, sans-serif  //Relaxed informative
+    Verdana, Geneva, Tahoma, sans-serif  //Smooth general
+    */
+}
+.section h3{
+  font-size: clamp(21px, 2.7vw, 200px);
+}
+.sectionwriter{
+  font-size: clamp(17px, 1.39vw, 200px);
+}
+
+.Sectionbutton{
+    height: clamp(35px, 3vw, 55px);
+    border-radius: 50%;
+}
+.Sectionbutton:hover{
+    box-shadow: 0 0 0 5px rgba(34,193,195,1);    
+}
+.Sectionbutton:active{
+    box-shadow: 0 0 0 5px rgba(233,187,45,1);  
+}
+
+.responsive-container-block {
+    min-height: 75px;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+    justify-content: space-evenly;
+}
+
+.responsive-container-block {
+  min-height: 75px;
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0px;
+  margin-right: auto;
+  margin-bottom: 0px;
+  margin-left: auto;
+  justify-content: space-evenly;
+}
+
+.team-card {
+  font-size: clamp(17px, 1.2vw, 20px);
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 20px 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-bottom: 25px;
+  max-width: 250px;
+  border-width: 6px;
+  border-style: solid;
+  border-image: linear-gradient(to bottom, rgba(233,187,45,1), rgba(34,193,195,1)) 1;
+}
+.team-card p {
+  margin-bottom: 15px;
+}
+.team-card img {
+  height: 140px;
+  /* clip-path: circle(50% at 50% 50%); */
+  border-radius: 10%;
+  margin-bottom: 15px;
+}
+.team-card img.icon {
+  height: 20px;
+  padding-right: 6px;
+  padding-left: 6px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
