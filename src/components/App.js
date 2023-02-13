@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import NavBar from './NavBar.js';
 import Home from './Home.js';
 import Minter from './Minter.js';
-import Auctioner from './Switcher.js';
+import Garden from './Switcher.js';
 import Web3 from 'web3';
-import NFTcon from '../contracts/ccc0token.json'
+import NFTcon from '../contracts/flower.json'
 import './App.css';
 
 class App extends Component {
@@ -74,19 +74,7 @@ class App extends Component {
   mint = () => {
     if(this.state.account === '0x0'){this.loadWallet(); return}
     this.setState({loading: true})
-    this.state.NFTContract.methods.mint().send({ from: this.state.account }).on('transactionHash', (hash) => {
-    this.setState({ loading: false })
-  })}
-  bid = (amount) => {
-    let web3 = window.web3
-    this.setState({loading: true})
-    this.state.AUCContract.methods.createBid().send({ from: this.state.account, value: web3.utils.toWei(amount)  }).on('transactionHash', (hash) => {
-    this.setState({ loading: false })
-  })}
-  settlecreate = () => {
-    if(this.state.account === '0x0'){this.loadWallet();}
-    this.setState({loading: true})
-    this.state.AUCContract.methods.settleCurrentAndCreateNewAuction().send({ from: this.state.account }).on('transactionHash', (hash) => {
+    this.state.NFTContract.methods.Mint().send({ from: this.state.account }).on('transactionHash', (hash) => {
     this.setState({ loading: false })
   })}
 
@@ -111,7 +99,6 @@ class App extends Component {
       NFTContract: {},
       AUCContract: {},
       NFTContractSupply: 0,
-      curbid: 0,
       pageTier: 1,
       sectionTier: 1,
       blockNumber: 0,
@@ -133,11 +120,8 @@ class App extends Component {
                   NFTContractSupply={this.state.NFTContractSupply}
                   />}
     if (this.state.pageTier === 3) {
-      content = <Auctioner
-                  settlecreate={this.settlecreate}
-                  bid={this.bid}
+      content = <Garden
                   blocktime={this.state.blocktime}
-                  curbid={this.state.curbid}
                   />}        
     if (this.state.loading === true) {
       content = <div className="loading-icon centerit"></div>

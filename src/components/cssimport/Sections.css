@@ -19,10 +19,10 @@
     border-radius: 50%;
 }
 .Sectionbutton:hover{
-    box-shadow: 0 0 0 5px rgba(34,193,195,1);    
+    box-shadow: 0 0 0 5px rgba(255,255,255,1);    
 }
 .Sectionbutton:active{
-    box-shadow: 0 0 0 5px rgba(233,187,45,1);  
+    box-shadow: 0 0 0 5px rgb(66, 75, 86);  
 }
 
 .responsive-container-block {
@@ -66,7 +66,7 @@
   max-width: 250px;
   border-width: 6px;
   border-style: solid;
-  border-image: linear-gradient(to bottom, rgba(233,187,45,1), rgba(34,193,195,1)) 1;
+  border-image: linear-gradient(to bottom, rgba(255,255,255,1), rgb(66, 75, 86)) 1;
 }
 .team-card p {
   margin-bottom: 15px;

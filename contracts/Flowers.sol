@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "./Interfaces/Ilove.sol";
 
-contract Flowers is ERC721Enumerable, Ownable {
+contract MyTokentest is ERC721Enumerable, Ownable {
     string public baseURI = "https://ipfs.io/ipfs/bafybeiggybn2qnqqizr7w4rwsp3ud76fgulayewmlcmvlkszce7d24u4dy/";
     uint256 public supplyMinted = 0;
     uint256 public expiration;
@@ -15,7 +15,7 @@ contract Flowers is ERC721Enumerable, Ownable {
     LoveToken public LoveTokenAddress = LoveToken(0xd60473822B706641baE873bE68988538df4CD61C);
 
 
-    constructor() ERC721("Flowers", "FLWRS") {
+    constructor() ERC721("MyTokentest", "MTK") {
         for(uint256 i;i < 50; ++i){
             Mint();
         }
@@ -44,10 +44,6 @@ contract Flowers is ERC721Enumerable, Ownable {
         flowerId[_from] = flowerId[tokento_];
         expireCheck();
     }
-    function _transfer(address from, address to, uint256 tokenId) internal virtual override {
-        super._transfer(from,to,tokenId);
-        expireCheck();
-    }
 
     function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
         require(_exists(tokenId),"ERC721Metadata: URI query for nonexistant token");
@@ -63,6 +59,10 @@ contract Flowers is ERC721Enumerable, Ownable {
         return baseURI;
     }
 
+    function _transfer(address from, address to, uint256 tokenId) internal virtual override {
+        super._transfer(from,to,tokenId);
+        expireCheck();
+    }
     function exiprationTime() public view returns (uint256){
         if(expiration > block.timestamp){
             return(expiration - block.timestamp);

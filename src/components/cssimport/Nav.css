@@ -1,5 +1,5 @@
 .navbarfull{
-    background: white;
+    background: ;
     backdrop-filter: blur(10px);
     position: fixed;
     width: 100%;
@@ -7,6 +7,6 @@
 
 .navimage{
     height: calc(2.5vh + 25px);
-    padding-right: 50px;
+    margin-right: 50px;
 }
 
