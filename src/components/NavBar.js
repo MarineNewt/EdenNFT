@@ -12,9 +12,9 @@ class NavBar extends Component {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />  
       <Navbar.Collapse id="basic-navbar-nav">  
         <Nav>  
-          <Nav.Link onClick={(event) => {event.preventDefault();this.props.page(1)}} style={{color: 'white'}}>Home</Nav.Link>  
-          <Nav.Link onClick={(event) => {event.preventDefault();this.props.page(2)}} style={{color: 'white'}}>Mint</Nav.Link>
-          <Nav.Link onClick={(event) => {event.preventDefault();this.props.page(3)}} style={{color: 'white'}}>The Garden</Nav.Link>
+          <Nav.Link className="navlink" onClick={(event) => {event.preventDefault();this.props.page(1)}}>Home</Nav.Link>  
+          <Nav.Link className="navlink" onClick={(event) => {event.preventDefault();this.props.page(2)}}>Mint</Nav.Link>
+          <Nav.Link className="navlink" onClick={(event) => {event.preventDefault();this.props.page(3)}}>The Garden</Nav.Link>
         </Nav>  
       </Navbar.Collapse>  
     </Container>  

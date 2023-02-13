@@ -9,4 +9,10 @@
     height: calc(2.5vh + 25px);
     margin-right: 50px;
 }
+.navlink{
+    color: rgb(255, 255, 255)
+}
+.navlink:hover{
+    color: black;
+}
 
