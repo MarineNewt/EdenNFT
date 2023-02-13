@@ -89,6 +89,10 @@ class App extends Component {
     if(sectionselect === 4){sectionselect = 1}
     this.setState({ sectionTier: (sectionselect)})
   }
+  sectionDirect = (sectionselect) => {
+    this.setState({ sectionTier: (sectionselect)})
+  }
+
 
   
 
@@ -110,9 +114,7 @@ class App extends Component {
   render() {
     let content
     if (this.state.pageTier === 1) {
-      content = <Home
-                  section={this.section}
-                  sectionTier={this.state.sectionTier}
+      content = <Home      
                   />}   
     if (this.state.pageTier === 2) {
       content = <Minter
@@ -121,6 +123,8 @@ class App extends Component {
                   />}
     if (this.state.pageTier === 3) {
       content = <Garden
+                  sectionDirect={this.sectionDirect}
+                  sectionTier={this.state.sectionTier}
                   blocktime={this.state.blocktime}
                   />}        
     if (this.state.loading === true) {

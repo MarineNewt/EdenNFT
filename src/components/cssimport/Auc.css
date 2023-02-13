@@ -58,3 +58,21 @@
 .help-icon:hover .help-text {
   display: block;
 }
+
+.megabutton{
+  border: .4vw solid black;
+  height: clamp(0px, 21vh, 1000px);
+  margin: 5px;
+  border-radius: 3vh;
+  padding: 1vh;
+  width: calc(45vw + 100px);
+  color: white;
+  background-color: rgb(0, 0, 0);
+  align-content: center;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  z-index: 1;
+}
+.megabutton:hover{
+  font-size: larger;
+}

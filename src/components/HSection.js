@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import arr from '../images/arrow.png'
 import Title from '../images/Love.png' 
 import NFT0 from '../images/0.webp' 
 import NFT1 from '../images/nft1.webp' 
@@ -24,8 +23,7 @@ import NFT16 from '../images/nft16.webp'
 class HSection extends Component {
   
   render() {
-    //Project Background
-   if(this.props.sectionTier === 1)return (
+    return (
         <div className='section sectionwriter'>
             <div> 
                 <div className="flexit">
@@ -126,33 +124,6 @@ class HSection extends Component {
                     </div>
                 </div>
                 </div>
-                
-            </div>
-        </div>
-    );
-
-    //Dep
-    if(this.props.sectionTier === 2)return (
-        <div className='section sectionwriter'>
-            <div className='flexit'>
-                <button onClick={(event) => {event.preventDefault();this.props.section(0)}} style={{border: 'none', backgroundColor: 'inherit', margin: 'auto'}}><img className='Sectionbutton' src={arr} alt='arrow' style={{transform: 'scaleX(-1)'}}></img></button>
-                <h3> The Garden </h3>
-                <button onClick={(event) => {event.preventDefault();this.props.section(1)}} style={{border: 'none', backgroundColor: 'inherit', margin: 'auto'}}><img className='Sectionbutton' src={arr} alt='arrow'></img></button>
-            </div>
-
-        </div>
-    );
-
-    //Dep
-    if(this.props.sectionTier === 3)return (
-        <div className='section'>
-            <div className='flexit'>
-                <button onClick={(event) => {event.preventDefault();this.props.section(0)}} style={{border: 'none', backgroundColor: 'inherit', margin: 'auto'}}><img className='Sectionbutton' src={arr} alt='arrow' style={{transform: 'scaleX(-1)'}}></img></button>
-                <h3> Origins  </h3>
-                <button onClick={(event) => {event.preventDefault();this.props.section(1)}} style={{border: 'none', backgroundColor: 'inherit', margin: 'auto'}}><img className='Sectionbutton' src={arr} alt='arrow'></img></button>
-            </div>
-            <div style={{marginRight: '3vw', marginLeft: '3vw'}}> 
-            <p>Love token</p>
                 
             </div>
         </div>
