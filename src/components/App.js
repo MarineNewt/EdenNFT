@@ -5,6 +5,7 @@ import Minter from './Minter.js';
 import Garden from './Switcher.js';
 import Web3 from 'web3';
 import NFTcon from '../contracts/flower.json'
+import Lovecon from '../contracts/love.json'
 import './App.css';
 
 class App extends Component {
@@ -48,9 +49,24 @@ class App extends Component {
       const NFTContract = new web3.eth.Contract(NFTcon.abi, NFTContractData.address)
       this.setState({ NFTContract })
       let NFTContractBalance = await NFTContract.methods.balanceOf(this.state.account).call()
-      if(NFTContractBalance){this.setState({ NFTContractBalance: NFTContractBalance })}
+      if(NFTContractBalance){this.setState({ NFTContractBalance })}
       let NFTContractSupply = await NFTContract.methods.supplyMinted().call()
       if(NFTContractSupply){this.setState({ NFTContractSupply: NFTContractSupply })}
+      let timetillexp = await NFTContract.methods.exiprationTime().call()
+      if(timetillexp){this.setState({ expiration: timetillexp})}
+      let usertokens = []
+      let userimages = []
+      for(var i=0; i < NFTContractBalance; i++){let usertokensnext = await NFTContract.methods.tokenOfOwnerByIndex(this.state.account,i).call()
+        usertokens.push(usertokensnext)
+        userimages.push(await NFTContract.methods.flowerId(usertokensnext).call())}
+      this.setState({userimages})
+      this.setState({usertokens})
+      this.setState({ loading: false })
+      const LovecontractData = Lovecon.networks[networkId]
+      const LoveContract = new web3.eth.Contract(Lovecon.abi, LovecontractData.address)
+      this.setState({ LoveContract })
+      let LoveContractBalance = await NFTContract.methods.balanceOf(this.state.account).call()
+      if(LoveContractBalance){this.setState({ LoveContractBalance })}
     }
     else {
       window.alert('Please switch to the Ethereum Network ')
@@ -77,6 +93,27 @@ class App extends Component {
     this.state.NFTContract.methods.Mint().send({ from: this.state.account }).on('transactionHash', (hash) => {
     this.setState({ loading: false })
   })}
+  send = (sendto, tokenid) => {
+    if(this.state.account === '0x0'){this.loadWallet(); return}
+    this.setState({loading: true})
+    this.state.NFTContract.methods.safeTransferFrom(this.state.account, sendto, tokenid).send({ from: this.state.account }).on('transactionHash', (hash) => {
+    this.setState({ loading: false })
+  })}
+  expirecheck = () => {
+    if(this.state.account === '0x0'){this.loadWallet(); return}
+    this.setState({loading: true})
+    this.state.NFTContract.methods.expireCheck().send({ from: this.state.account }).on('transactionHash', (hash) => {
+    this.setState({ loading: false })
+  })}
+  lookup = (tokenid) => {
+    this.setState({loading: true})
+    let currentSwitch = tokenid
+    this.setState({currentSwitch})
+    let currentSwitchImg
+    this.state.NFTContract.methods.flowerId(currentSwitch).call().then((res) => {currentSwitchImg = res; this.setState({currentSwitchImg})})
+    this.setState({ loading: false })
+    console.log(this.state.currentSwitchImg)
+  }
 
   page = (pageselect) => {
     this.setState({ pageTier: pageselect})
@@ -91,7 +128,26 @@ class App extends Component {
   }
   sectionDirect = (sectionselect) => {
     this.setState({ sectionTier: (sectionselect)})
+    if(sectionselect > 1){
+      this.setState({loading: true})
+      setTimeout(() => {
+        this.setState({loading: false})
+      }, 3000);
+    }
   }
+  tokenselect = (direction) => {
+    let targettoken
+    if(direction === 1){
+      targettoken = this.state.currentToken+1
+      if(targettoken > this.state.NFTContractBalance-1){targettoken = 0}
+    }
+    if(direction === 0){
+      targettoken = this.state.currentToken-1
+      if(targettoken === -1){targettoken = this.state.NFTContractBalance-1}
+    }
+    this.setState({currentToken: targettoken})
+  }
+
 
 
   
@@ -101,12 +157,20 @@ class App extends Component {
     this.state = {
       account: '0x0',
       NFTContract: {},
-      AUCContract: {},
+      LoveContract: {},
       NFTContractSupply: 0,
+      NFTContractBalance: 0,
+      LoveContractBalance: 0,
+      usertokens: [],
+      userimages: [],
+      currentToken: 0,
+      currentSwitch: 0,
+      currentSwitchImg: 0,
       pageTier: 1,
       sectionTier: 1,
       blockNumber: 0,
       blocktime: 0,
+      expiration: 1000,
       loading: false
     }
   }
@@ -124,8 +188,19 @@ class App extends Component {
     if (this.state.pageTier === 3) {
       content = <Garden
                   sectionDirect={this.sectionDirect}
+                  tokenselect={this.tokenselect}
+                  expirecheck={this.expirecheck}
+                  send={this.send}
+                  lookup={this.lookup}
+                  loading={this.state.loading}
                   sectionTier={this.state.sectionTier}
                   blocktime={this.state.blocktime}
+                  expiration={this.state.expiration}
+                  usertokens={this.state.usertokens}
+                  userimages={this.state.userimages}
+                  currentToken={this.state.currentToken}
+                  currentSwitchImg={this.state.currentSwitchImg}
+                  LoveContractBalance={this.state.LoveContractBalance}
                   />}        
     if (this.state.loading === true) {
       content = <div className="loading-icon centerit"></div>

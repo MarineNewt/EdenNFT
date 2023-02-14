@@ -79,6 +79,12 @@
   border-radius: 4px;
 }
 
+.disabled{
+  background-color: rgba(0,0,0,.2);
+  border: 3px black solid;
+  color: rgba(255,255,255,.4);
+}
+
 .title-border{
   text-align: center;
   padding-top: 8px;

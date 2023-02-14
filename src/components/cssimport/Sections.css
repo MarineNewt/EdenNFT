@@ -15,7 +15,7 @@
 }
 
 .Sectionbutton{
-    height: clamp(35px, 3vw, 55px);
+    height: clamp(35px, 4vw, 70px);
     border-radius: 50%;
 }
 .Sectionbutton:hover{

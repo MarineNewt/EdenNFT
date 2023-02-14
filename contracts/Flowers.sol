@@ -26,7 +26,7 @@ contract MyTokentest is ERC721Enumerable, Ownable {
         public
     {
         uint256 id = supplyMinted+1;
-        require(id < 100);
+        require(id < 101);
         _safeMint(msg.sender, id);
         flowerId[id] = id;
         supplyMinted++;
