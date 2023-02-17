@@ -60,6 +60,7 @@ class App extends Component {
         usertokens.push(usertokensnext)
         userimages.push(await NFTContract.methods.flowerId(usertokensnext).call())}
       this.setState({userimages})
+      console.log(userimages[0])
       this.setState({usertokens})
       this.setState({ loading: false })
       const LovecontractData = Lovecon.networks[networkId]

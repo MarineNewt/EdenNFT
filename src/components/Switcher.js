@@ -29,13 +29,13 @@ class Switcher extends Component {
             {this.props.LoveContractBalance < 1 && <img className="mt-3" style={{height: 'clamp(150px, 15vw, 1000px)', border: "5px black solid", borderRadius: '2px'}} src={images[0]} alt='flower'></img>}
             <button onClick={(event) => {event.preventDefault();this.props.tokenselect(1)}} style={{border: 'none', backgroundColor: 'inherit', margin: 'auto'}}><img className='Sectionbutton' src={arr} alt='arrow'></img></button>
           </div>
-          <h5 className='mt-2'>Token id: {this.props.currentToken+1}</h5>
+          <h5 className='mt-2'>Token id: {this.props.usertokens[this.props.currentToken]}</h5>
           <div style={{width: "calc(25vw + 60px)", margin: 'auto'}}>
             <form onSubmit={(event) => {
               event.preventDefault()
               let sendto
               sendto = this.input1.value.toString()
-              this.props.send(sendto, this.props.currentToken+1)}}>
+              this.props.send(sendto, this.props.usertokens[this.props.currentToken])}}>
             <input
               type="text"
               ref={(input) =>  { this.input1 = input }}
@@ -71,6 +71,7 @@ class Switcher extends Component {
               <form className='flexit mt-2' onSubmit={(event) => {
                 event.preventDefault()
                 let tokenid
+                if(this.input1.value > 100){this.input1.value = 100}
                 tokenid = this.input1.value.toString()
                 this.props.lookup(tokenid)}}>
                 <input

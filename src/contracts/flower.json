@@ -101,6 +101,19 @@
 			"type": "event"
 		},
 		{
+			"inputs": [
+				{
+					"internalType": "address[]",
+					"name": "_addresses",
+					"type": "address[]"
+				}
+			],
+			"name": "AirdropMint",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
 			"inputs": [],
 			"name": "LoveTokenAddress",
 			"outputs": [
@@ -578,8 +591,8 @@
 	"5": {
 		"events": {},
 		"links": {},
-		"address": "0x0C8b6A652674159fe17E09bc51f0f811C4c33553",
-		"transactionHash": "0xb5cd17f143d76bae41ce835ec514ab0a61649ef509d315af0bc7b27bdb51c6c8 "
+		"address": "0x9540a77e197263bcbcfa9bb6488e259cd7e76ebc",
+		"transactionHash": "0x9540a77e197263bcbcfa9bb6488e259cd7e76ebc "
 	  }
   }
 }

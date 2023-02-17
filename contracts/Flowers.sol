@@ -16,7 +16,7 @@ contract MyTokentest is ERC721Enumerable, Ownable {
 
 
     constructor() ERC721("MyTokentest", "MTK") {
-        for(uint256 i;i < 50; ++i){
+        for(uint256 i;i < 20; ++i){
             Mint();
         }
         expiration = block.timestamp + 4 hours;
@@ -51,9 +51,10 @@ contract MyTokentest is ERC721Enumerable, Ownable {
         require(msg.sender == switcher);
         require(LoveTokenAddress.balanceOf(switcher) > 0);
         require(LoveTokenAddress.balanceOf(switchee) > 0);
-        uint256 tokento_ = flowerId[_to];
-        flowerId[_to] = flowerId[_from];
-        flowerId[_from] = flowerId[tokento_];
+        uint256 tokento = flowerId[_to];
+        uint256 tokenfrom = flowerId[_from];
+        flowerId[_to] = tokenfrom;
+        flowerId[_from] = tokento;
         expireCheck();
     }
 
@@ -64,7 +65,7 @@ contract MyTokentest is ERC721Enumerable, Ownable {
         if(LoveTokenAddress.balanceOf(tokenowner) < 1){
             return bytes(currentBaseURI).length > 0 ? string(abi.encodePacked(currentBaseURI, "0", ".json")): "";
         }
-        return bytes(currentBaseURI).length > 0 ? string(abi.encodePacked(currentBaseURI, Strings.toString(tokenId), ".json")): "";
+        return bytes(currentBaseURI).length > 0 ? string(abi.encodePacked(currentBaseURI, Strings.toString(flowerId[tokenId]), ".json")): "";
     }
 
     function _baseURI() internal view virtual override returns (string memory) {
