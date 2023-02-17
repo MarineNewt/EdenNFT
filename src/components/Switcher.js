@@ -62,7 +62,7 @@ class Switcher extends Component {
                 <img style={{height: 'clamp(60px, 15vw, 1000px)', border: "5px black solid", borderRadius: '2px'}} src={images[this.props.userimages[this.props.currentToken]]} alt='flower'></img>
                 <button onClick={(event) => {event.preventDefault();this.props.tokenselect(1)}} style={{border: 'none', backgroundColor: 'inherit', margin: 'auto'}}><img className='Sectionbutton' src={arr} alt='arrow'></img></button>
               </div>
-              <p>Token id: {this.props.currentToken+1}</p>
+              <p>Token id: {this.props.usertokens[this.props.currentToken]}</p>
             </div>
             <div>
               <p style={{marginBottom: "0px"}}>Switch with:</p>
@@ -84,7 +84,7 @@ class Switcher extends Component {
               </form>
             </div>
           </div>
-          {this.props.currentSwitchImg > 0 && <button className="inputbtn" style={{marginTop: "clamp(0px, 2.5vw, 100px)", width: '16vw'}}>Switch Flowers</button>}
+          {this.props.currentSwitchImg > 0 && <button onClick={(event) => {event.preventDefault(); this.props.switchF()}} className="inputbtn" style={{marginTop: "clamp(0px, 2.5vw, 100px)", width: '16vw'}}>Switch Flowers</button>}
           {this.props.currentSwitchImg < 1 && <button disabled className="inputbtn disabled" style={{marginTop: "clamp(0px, 2.5vw, 100px)", width: '16vw'}}>Switch Flowers</button>}
         </div>
       </div>

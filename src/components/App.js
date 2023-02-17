@@ -65,7 +65,7 @@ class App extends Component {
       const LovecontractData = Lovecon.networks[networkId]
       const LoveContract = new web3.eth.Contract(Lovecon.abi, LovecontractData.address)
       this.setState({ LoveContract })
-      let LoveContractBalance = await NFTContract.methods.balanceOf(this.state.account).call()
+      let LoveContractBalance = await LoveContract.methods.balanceOf(this.state.account).call()
       if(LoveContractBalance){this.setState({ LoveContractBalance })}
     }
     else {
@@ -99,6 +99,11 @@ class App extends Component {
     this.state.NFTContract.methods.safeTransferFrom(this.state.account, sendto, tokenid).send({ from: this.state.account }).on('transactionHash', (hash) => {
     this.setState({ loading: false })
   })}
+  switchF = () => {
+    this.setState({loading: true})
+    this.state.NFTContract.methods.flowerSwitch(this.state.usertokens[this.state.currentToken], this.state.currentSwitch).send({ from: this.state.account }).on('transactionHash', (hash) => {
+    this.setState({ loading: false })
+  })}
   expirecheck = () => {
     if(this.state.account === '0x0'){this.loadWallet(); return}
     this.setState({loading: true})
@@ -110,9 +115,15 @@ class App extends Component {
     let currentSwitch = tokenid
     this.setState({currentSwitch})
     let currentSwitchImg
-    this.state.NFTContract.methods.flowerId(currentSwitch).call().then((res) => {currentSwitchImg = res; this.setState({currentSwitchImg})})
+    let targetaccount
+    let targetLoveBal
+    this.state.NFTContract.methods.flowerId(currentSwitch).call().then((res) => {currentSwitchImg = res;
+    this.state.NFTContract.methods.ownerOf(currentSwitch).call().then((res) => {targetaccount = res; 
+    this.state.LoveContract.methods.balanceOf(targetaccount).call().then((res) => {targetLoveBal = res;
+    if(targetLoveBal < 1){currentSwitchImg = 0}
+    this.setState({currentSwitchImg})
+    })})})
     this.setState({ loading: false })
-    console.log(this.state.currentSwitchImg)
   }
 
   page = (pageselect) => {
@@ -191,6 +202,7 @@ class App extends Component {
                   tokenselect={this.tokenselect}
                   expirecheck={this.expirecheck}
                   send={this.send}
+                  switchF={this.switchF}
                   lookup={this.lookup}
                   loading={this.state.loading}
                   sectionTier={this.state.sectionTier}

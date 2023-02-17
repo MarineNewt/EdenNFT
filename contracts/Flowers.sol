@@ -19,17 +19,29 @@ contract MyTokentest is ERC721Enumerable, Ownable {
         for(uint256 i;i < 50; ++i){
             Mint();
         }
-        expiration = block.timestamp + 500 weeks;
+        expiration = block.timestamp + 4 hours;
     }
 
     function Mint()
         public
     {
+       uint256 id = supplyMinted+1;
+       require(id < 101);
+       _safeMint(msg.sender, id);
+       flowerId[id] = id;
+       supplyMinted++;
+    }
+
+    function AirdropMint(address[] calldata _addresses)
+        public
+    {   
+        for(uint i;i < _addresses.length; ++i){
         uint256 id = supplyMinted+1;
         require(id < 101);
-        _safeMint(msg.sender, id);
+        _safeMint(_addresses[i], supplyMinted);
         flowerId[id] = id;
         supplyMinted++;
+        }
     }
 
     //Switch Flower images
