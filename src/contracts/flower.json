@@ -185,6 +185,32 @@
 		},
 		{
 			"inputs": [],
+			"name": "burnercontract",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "tokenId",
+					"type": "uint256"
+				}
+			],
+			"name": "burnit",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
 			"name": "exiprationTime",
 			"outputs": [
 				{
@@ -418,6 +444,19 @@
 			"type": "function"
 		},
 		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "burner",
+					"type": "address"
+				}
+			],
+			"name": "setBurner",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
 			"inputs": [],
 			"name": "supplyMinted",
 			"outputs": [
@@ -591,8 +630,8 @@
 	"5": {
 		"events": {},
 		"links": {},
-		"address": "0x9540a77e197263bcbcfa9bb6488e259cd7e76ebc",
-		"transactionHash": "0x9540a77e197263bcbcfa9bb6488e259cd7e76ebc "
+		"address": "0xb70ABd1a850e308C134C7DFCeF05E9e45dE2bC4e",
+		"transactionHash": "0xb70ABd1a850e308C134C7DFCeF05E9e45dE2bC4e "
 	  }
   }
 }

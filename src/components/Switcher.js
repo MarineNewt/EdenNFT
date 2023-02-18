@@ -29,7 +29,7 @@ class Switcher extends Component {
             {this.props.LoveContractBalance < 1 && <img className="mt-3" style={{height: 'clamp(150px, 15vw, 1000px)', border: "5px black solid", borderRadius: '2px'}} src={images[0]} alt='flower'></img>}
             <button onClick={(event) => {event.preventDefault();this.props.tokenselect(1)}} style={{border: 'none', backgroundColor: 'inherit', margin: 'auto'}}><img className='Sectionbutton' src={arr} alt='arrow'></img></button>
           </div>
-          <h5 className='mt-2'>Token id: {this.props.usertokens[this.props.currentToken]}</h5>
+          <h5 className='mt-2 efont'>Token id: {this.props.usertokens[this.props.currentToken]}</h5>
           <div style={{width: "calc(25vw + 60px)", margin: 'auto'}}>
             <form onSubmit={(event) => {
               event.preventDefault()
@@ -56,16 +56,16 @@ class Switcher extends Component {
           <button className="inputbtn" style={{width: '8vw', fontSize: 'calc((.75vw + 7.5px))'}} onClick={(event) => {event.preventDefault();this.props.sectionDirect(1)}}>Return</button>
           <div className='flexit' style={{justifyContent: 'space-around'}}>
             <div>
-              <p style={{marginBottom: "0px"}}>Your Flower:</p>
+              <p className="efont" style={{marginBottom: "0px"}}>Your Flower:</p>
               <div className='flexit' style={{}}>
                 <button onClick={(event) => {event.preventDefault();this.props.tokenselect(0)}} style={{border: 'none', backgroundColor: 'inherit', margin: 'auto'}}><img className='Sectionbutton' src={arr} alt='arrow' style={{transform: 'scaleX(-1)'}}></img></button>
                 <img style={{height: 'clamp(60px, 15vw, 1000px)', border: "5px black solid", borderRadius: '2px'}} src={images[this.props.userimages[this.props.currentToken]]} alt='flower'></img>
                 <button onClick={(event) => {event.preventDefault();this.props.tokenselect(1)}} style={{border: 'none', backgroundColor: 'inherit', margin: 'auto'}}><img className='Sectionbutton' src={arr} alt='arrow'></img></button>
               </div>
-              <p>Token id: {this.props.usertokens[this.props.currentToken]}</p>
+              <p className="efont">Token id: {this.props.usertokens[this.props.currentToken]}</p>
             </div>
             <div>
-              <p style={{marginBottom: "0px"}}>Switch with:</p>
+              <p className="efont" style={{marginBottom: "0px"}}>Switch with:</p>
               <img style={{height: 'clamp(60px, 15vw, 1000px)', border: "5px black solid", borderRadius: '2px'}} src={images[this.props.currentSwitchImg]} alt='flower'></img>            
               
               <form className='flexit mt-2' onSubmit={(event) => {
@@ -96,7 +96,8 @@ class Switcher extends Component {
           <h1 className="title-border" style={{width: 'calc(11vw + 225px)'}}>The End</h1>
           <button className="inputbtn" style={{width: '8vw', fontSize: 'calc((.75vw + 7.5px))'}} onClick={(event) => {event.preventDefault();this.props.sectionDirect(1)}}>Return</button>
           <b><h3 className='mt-5'>{Math.floor(this.props.expiration/86400)} Days, {Math.floor(this.props.expiration/3600)%24} Hours, {Math.floor(this.props.expiration/60)%60} Minutes.</h3></b>
-          <p style={{paddingRight: 'clamp(1px, 6vw, 80px)', paddingLeft: 'clamp(1px, 6vw, 80px)', marginBottom: 'calc(4vw + 30px)'}}><i>"The truth is, once you learn how to die, you learn how to live."</i></p>
+          <p className="efont" style={{paddingRight: 'clamp(40px, 6vw, 80px)', paddingLeft: 'clamp(40px, 6vw, 80px)', marginBottom: '0px'}}><i>"The truth is, once you learn how to die,</i></p>
+          <p className="efont" style={{paddingRight: 'clamp(1px, 6vw, 80px)', paddingLeft: 'clamp(1px, 6vw, 80px)', marginBottom: 'calc(4vw + 30px)'}}><i> you learn how to live."</i></p>
           {this.props.expiration === '0' && <button style={{width: "calc(10vw + 120px)", marginBottom: "10px", color: 'white', backgroundColor: 'black'}} onClick={(event) => {event.preventDefault(); this.props.expirecheck()}} className='inputbtn'>Destroy Contract.</button>}
           {this.props.expiration !== '0' && <button disabled style={{width: "calc(10vw + 120px)", marginBottom: "10px"}} onClick={(event) => {event.preventDefault(); this.props.expirecheck()}} className='inputbtn disabled'>Destroy Contract</button>}
         </div>
