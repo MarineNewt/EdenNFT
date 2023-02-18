@@ -61,7 +61,7 @@
 
 .megabutton{
   border: .4vw solid black;
-  height: clamp(0px, 21vh, 1000px);
+  height: clamp(1px, 21vh, 1000px);
   margin: 5px;
   border-radius: 3vh;
   padding: 1vh;
