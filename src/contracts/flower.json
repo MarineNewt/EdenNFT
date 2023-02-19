@@ -130,7 +130,7 @@
 			"inputs": [],
 			"name": "Mint",
 			"outputs": [],
-			"stateMutability": "nonpayable",
+			"stateMutability": "payable",
 			"type": "function"
 		},
 		{
