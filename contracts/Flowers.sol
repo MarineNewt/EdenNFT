@@ -25,21 +25,22 @@ contract EdensFlowers is ERC721Enumerable, Ownable {
     {
        uint256 id = supplyMinted+1;
        require(id < 101);
-       _safeMint(msg.sender, id);
+       _mint(msg.sender, id);
        flowerId[id] = id;
        supplyMinted++;
     }
 
     function AirdropMint(address[] calldata _addresses)
         public
-    {   
-        for(uint i;i < _addresses.length; ++i){
+    {   for(uint i;i < _addresses.length;){
+        unchecked{
         uint256 id = supplyMinted+1;
         require(id < 101);
-        _safeMint(_addresses[i], supplyMinted);
+        _mint(_addresses[i], id);
         flowerId[id] = id;
-        supplyMinted++;
-        }
+        supplyMinted = id;
+        ++i;
+        }}
     }
 
     //Optional burn
