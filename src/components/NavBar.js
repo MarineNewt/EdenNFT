@@ -7,7 +7,7 @@ class NavBar extends Component {
   render() {
     return (
       <Navbar bg="" expand="md" style={{zIndex: 5}} className="navbarfull">  
-      <a href='https://opensea.io/collection/edens-flowers' target="_blank" rel="noopener noreferrer"><img src={OS} alt='os' style={{position: 'absolute', right: '7vw', top: '80px', height: 'clamp(25px, 5vw, 1000px'}}></img></a>
+      <a href='https://opensea.io/collection/edens-flowers' target="_blank" rel="noopener noreferrer"><img src={OS} alt='os' style={{position: 'absolute', right: 'calc(10vw - 25px)', top: '80px', height: 'clamp(25px, 5vw, 1000px'}}></img></a>
     <Container>  
       <Navbar.Brand href="/" style={{color: 'white'}}>Eden's Flowers</Navbar.Brand>  
       <img style={{border: 'solid black'}} src={logo} alt="logo" className='navimage'></img>
