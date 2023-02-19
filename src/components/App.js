@@ -92,7 +92,7 @@ class App extends Component {
     const web3 = window.web3
     if(this.state.account === '0x0'){this.loadWallet(); return}
     this.setState({loading: true})
-    this.state.NFTContract.methods.Mint().send({ from: this.state.account, value: web3.utils.toWei('1') }).on('transactionHash', (hash) => {
+    this.state.NFTContract.methods.Mint().send({ from: this.state.account, value: web3.utils.toWei('0.00251') }).on('transactionHash', (hash) => {
     this.setState({ loading: false })
   })}
   send = (sendto, tokenid) => {
