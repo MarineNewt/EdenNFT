@@ -21,7 +21,7 @@ class Minter extends Component {
               <img className='card' src={nft4} alt='icon' />
               <img className='card' src={nft5} alt='icon' />
             </div>
-            <p><i>~Free Mint~</i></p>
+            <p><i>~0.0025 Mint~</i></p>
             <button onClick={(event) => {event.preventDefault() 
               this.props.mint()}} className='inputbtn glowit'>Mint</button>
           </div>
