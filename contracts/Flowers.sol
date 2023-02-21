@@ -16,13 +16,13 @@ contract EdensFlowers is ERC721Enumerable, Ownable {
     LoveToken public LoveTokenAddress = LoveToken(0x64F9670a6eb014e222a5a97C131FC8D19c98f128);
         
     constructor() ERC721("Edens Flowers", "FLWR") {
-        Mint();
         expiration = block.timestamp + 500 weeks;
     }
 
     function Mint()
-        public
-    {
+        public payable
+    {   
+       require(msg.value > 0.0025 ether);
        uint256 id = supplyMinted+1;
        require(id < 101);
        _mint(msg.sender, id);
@@ -31,7 +31,7 @@ contract EdensFlowers is ERC721Enumerable, Ownable {
     }
 
     function AirdropMint(address[] calldata _addresses)
-        public
+        onlyOwner public
     {   for(uint i;i < _addresses.length;){
         unchecked{
         uint256 id = supplyMinted+1;
