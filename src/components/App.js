@@ -3,6 +3,7 @@ import NavBar from './NavBar.js';
 import Home from './Home.js';
 import Minter from './Minter.js';
 import Garden from './Switcher.js';
+import InfoPage from './infoPage.js';
 import Web3 from 'web3';
 import NFTcon from '../contracts/flower.json'
 import Lovecon from '../contracts/love.json'
@@ -216,6 +217,9 @@ class App extends Component {
                   currentSwitchImg={this.state.currentSwitchImg}
                   LoveContractBalance={this.state.LoveContractBalance}
                   />}        
+    if (this.state.pageTier === 4) {
+      content = <InfoPage
+                  />}     
     if (this.state.loading === true) {
       content = <div className="loading-icon centerit"></div>
     }  
