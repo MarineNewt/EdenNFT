@@ -14,7 +14,7 @@ class InfoPage extends Component {
             <h2>Love Token</h2>
             <p>Love token is a fun lighthearted project with a mass proliferation mechanism. Love token holders will forver be Love token holders. Each time to NFT to is transferred toa different address a new token is minted back to the sender of the Love token thus making Love Tokens monetarily worthless themselves, but not without value as demonstrated with the Flowers added layer to the Love collection. </p>
             <h2>The Garden</h2>
-            <p></p>
+            <p>"The Garden" is a section to interact with all of the mechanisms of the Eden's Flowers Collection. Check out The Garden tab to send your token(s) to different addresses, interact with the collection's switch mechanism, or observe the remaining time of the collection. The transferring flowers subsection is only available to holders of Flowers, and the switching Flowers subsection is only available to holders of both LOVE and Flowers. Details on the contract's mechanisms can be found below.</p>
             <h2>Switching flowers</h2>
             <p></p>
             <h2>The End</h2>
