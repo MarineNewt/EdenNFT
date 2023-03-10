@@ -20,7 +20,7 @@ class InfoPage extends Component {
             <h2>The End</h2>
             <p></p>
             <h2>The Creator - Newt9</h2>
-            <p></p>
+            <p>Active experimentalist and NFT enthusiast. I enjoy creating unique projects that offer interactive experiences and display deeper utilization of the medium. To learn more about me and my projects you can visit Newt9.dev or connect with me directly at Eden@newt9.dev.</p>
           </div>
       </div>
     );
