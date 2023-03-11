@@ -18,7 +18,7 @@ class InfoPage extends Component {
             <h2>Switching flowers</h2>
             <p></p>
             <h2>The End</h2>
-            <p></p>
+            <p>The Eden's Flower collection rescinds its permenance to remind us of the value of a moment. This collection will not exist forever; at 'The End' section of the Garden you can find a timer displaynig the remaining time for the collection to exist, at the conclusion of this timer the disabled button at the bottom of the page will then become active allowing any user to end the chapter of this collection and selfdestruct the contract. Prior to Eden's flowers I became engaged with many on chain works and began developing my own, interested in creating tokens that will stand with Ethereum until it's demise. However, seeing the life within a bundled boquet of flowers one morning reminded me of the beauty of the temporary. I realized the obsession of the immortal was not everything, and sometimes it is the brevity of a moment that provides its signifigance. </p>
             <h2>The Creator - Newt9</h2>
             <p>Active experimentalist and NFT enthusiast. I enjoy creating unique projects that offer interactive experiences and display deeper utilization of the medium. To learn more about me and my projects you can visit Newt9.dev or connect with me directly at Eden@newt9.dev.</p>
           </div>
