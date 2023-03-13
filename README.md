@@ -2,6 +2,8 @@
 Eden's Flowers NFT project is a collection of 100 unique AI generated flowers on a contract with unique mechanisms built to extend the LOVE token project and display the capabilities of a smart contract as an art piece.
 
 #### Live Website viewable at <a href='https://edensflowers.netlify.app/' target="_blank" rel="noopener noreferrer">https://edensflowers.netlify.app/</a>
+<img width="944" alt="image" src="https://user-images.githubusercontent.com/38538941/224634624-a71168a7-cae0-41ae-974a-d785cba5ab55.png">
+
 ## src/components
 #### Home
 -Container for H(ome)Section
