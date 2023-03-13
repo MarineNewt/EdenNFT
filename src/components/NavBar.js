@@ -19,6 +19,7 @@ class NavBar extends Component {
           <Nav.Link className="navlink" onClick={(event) => {event.preventDefault();this.props.page(1)}}>Home</Nav.Link>  
           <Nav.Link className="navlink" onClick={(event) => {event.preventDefault();this.props.page(2)}}>Mint</Nav.Link>
           <Nav.Link className="navlink" onClick={(event) => {event.preventDefault();this.props.page(3)}}>The Garden</Nav.Link>
+          <Nav.Link className="navlink" onClick={(event) => {event.preventDefault();this.props.page(4)}}>Info</Nav.Link>
         </Nav>  
       </Navbar.Collapse>  
     </Container>  

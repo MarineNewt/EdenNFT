@@ -25,6 +25,10 @@
     box-shadow: 0 0 0 5px rgb(66, 75, 86);  
 }
 
+.infoindent p{
+  text-indent: clamp(15px, 2.5vw, 100px);
+}
+
 .responsive-container-block {
     min-height: 75px;
     height: fit-content;
